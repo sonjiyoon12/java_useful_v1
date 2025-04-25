@@ -30,28 +30,26 @@ public class BankAccount {
             setMoney(currentMoney + money);
             System.out.println("ATM 현재 잔액(입금) : " + getMoney());
         }
-
     }
-        // 출금
-        // synchronized 메서드
-        public synchronized int widthDraw ( int money){
 
-            int currentMoney = getMoney();
+    // 출금
+    // synchronized 블럭 처리
+    public void widthDraw(int money) {
+
+        int currentMoney = getMoney();
+        synchronized (this) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            setMoney(currentMoney - money);
+            System.out.println("ATM 현재 잔액(출금) :" + getMoney());
+        }
 
-            // 방어적 코드
-            if (currentMoney < money) {
-                System.out.println("잔액이 부족합니다");
-                return 0;
-            } else {
-                setMoney(currentMoney - money);
-                System.out.println("ATM 현재 잔액(출금) :" + getMoney());
-                return 0;
-            }
-
+        // 방어적 코드
+        if (currentMoney < money) {
+            System.out.println("잔액이 부족합니다");
         }
     }
+}

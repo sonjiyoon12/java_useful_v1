@@ -35,5 +35,4 @@ public class Spaceship {
             System.out.println("Engine" + serialNumber + "동작합니다 부릉~~");
         }
     } // end of inner Engine
-
 }

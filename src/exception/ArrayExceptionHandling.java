@@ -17,12 +17,11 @@ public class ArrayExceptionHandling {
                 System.out.println("arr[" + i + "] = " + arr[i]);
             }
         }catch(ArrayIndexOutOfBoundsException e1){
-            System.out.println("배열에 법위를 넘었어요!");
+            System.out.println("배열의 범위를 넘었어요!");
         }catch (Exception e2){
             System.out.println(e2.getClass());
             // 예외가 발생 했다면 예외 처리를 만들어 줄 수 있다.
             //System.out.println("나의 예외 처리 : " + e.getMessage());
-
         }
 
         System.out.println("비정상 종료되지 않았습니다.");
